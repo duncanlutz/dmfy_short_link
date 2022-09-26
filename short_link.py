@@ -8,10 +8,10 @@ app = Flask(__name__)
 CORS(app)
 
 db = mysql.connector.connect(
-    host="database-2.cgmxkrhsu7rp.us-west-2.rds.amazonaws.com",
-    user="short_link_user",
-    passwd="SVr1trzl5FZXpzPPZn9SLI0i67EE",
-    database="dramafy_db"
+    host=os.getenv('MYSQL_HOST'),
+    user=os.getenv('MYSQL_USER'),
+    passwd=os.getenv('MYSQL_PASS'),
+    database=os.getenv('MYSQL_DB')
 )
 
 @app.get('/short')
