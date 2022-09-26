@@ -14,12 +14,12 @@ db = mysql.connector.connect(
     database=os.getenv('MYSQL_DB')
 )
 
-@app.get('/short')
+@app.route('/', methods=["GET"])
 def redirect_to_dramafy():
     return redirect('https://dramafy.com', code=302)
 
-@app.get('/<short_key>')
-@app.get('/<short_key>/<affiliate_id>')
+@app.route('/<short_key>', methods=["GET"])
+@app.route('/<short_key>/<affiliate_id>', methods=["GET"])
 def get_short_page(short_key, affiliate_id=None):
     
     db.ping(reconnect=True)
