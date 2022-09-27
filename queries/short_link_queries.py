@@ -5,16 +5,10 @@ WHERE short_slug = %s;
 '''
 
 add_short_link_visit = '''INSERT INTO shortened_link_visit(
-    link_id,
-    affiliate_id,
-    referrer,
-    datetime
+    {}
 )
 VALUES(
-    %s,
-    %s,
-    %s,
-    %s
+    {}
 );
 '''
 
